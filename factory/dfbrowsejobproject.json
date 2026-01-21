@@ -1,0 +1,9 @@
+{
+	"name": "dfbrowsejobproject",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "15d51672-7c4c-4f43-8cc8-4e09a9768046",
+		"tenantId": "bac21004-e1b1-43da-b197-d0a27b647012"
+	}
+}
