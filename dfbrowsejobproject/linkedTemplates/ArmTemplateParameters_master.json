@@ -11,10 +11,28 @@
 		"AzureDataLakeStorage2_accountKey": {
 			"value": ""
 		},
+		"SinkLinked_password": {
+			"value": ""
+		},
+		"Sourcelinked_accountKey": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://browsejobproject.dfs.core.windows.net/"
 		},
 		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://browsejobproject.dfs.core.windows.net/"
+		},
+		"SinkLinked_properties_typeProperties_server": {
+			"value": "dbpracticepro.database.windows.net"
+		},
+		"SinkLinked_properties_typeProperties_database": {
+			"value": "practiceprojectdb"
+		},
+		"SinkLinked_properties_typeProperties_userName": {
+			"value": "admindb"
+		},
+		"Sourcelinked_properties_typeProperties_url": {
 			"value": "https://browsejobproject.dfs.core.windows.net/"
 		},
 		"containerUri": {
