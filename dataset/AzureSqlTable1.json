@@ -1,0 +1,84 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SinkLinked",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Index",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "AccountId",
+				"type": "varchar"
+			},
+			{
+				"name": "LeadOwner",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FirstName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LastName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Company",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Phone1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Phone2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Email1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Email2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Website",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Source",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DealStage",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Notes",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CreatedAt",
+				"type": "datetime2",
+				"scale": 0
+			},
+			{
+				"name": "UpdatedAt",
+				"type": "datetime2",
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Leads"
+		}
+	}
+}
