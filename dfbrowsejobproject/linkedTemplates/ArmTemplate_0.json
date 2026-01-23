@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
 		},
+		"AzureDataLakeStorage3_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage3'"
+		},
 		"SinkLinked_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SinkLinked'"
@@ -28,6 +32,10 @@
 			"defaultValue": "https://browsejobproject.dfs.core.windows.net/"
 		},
 		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://browsejobproject.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://browsejobproject.dfs.core.windows.net/"
 		},
@@ -81,6 +89,23 @@
 					"accountKey": {
 						"type": "SecureString",
 						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStorage3')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('AzureDataLakeStorage3_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDataLakeStorage3_accountKey')]"
 					}
 				}
 			},
@@ -381,6 +406,216 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage3",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "task1container"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Index",
+						"type": "String"
+					},
+					{
+						"name": "Account Id",
+						"type": "String"
+					},
+					{
+						"name": "Lead Owner",
+						"type": "String"
+					},
+					{
+						"name": "First Name",
+						"type": "String"
+					},
+					{
+						"name": "Last Name",
+						"type": "String"
+					},
+					{
+						"name": "Company",
+						"type": "String"
+					},
+					{
+						"name": "Phone 1",
+						"type": "String"
+					},
+					{
+						"name": "Phone 2",
+						"type": "String"
+					},
+					{
+						"name": "Email 1",
+						"type": "String"
+					},
+					{
+						"name": "Email 2",
+						"type": "String"
+					},
+					{
+						"name": "Website",
+						"type": "String"
+					},
+					{
+						"name": "Source",
+						"type": "String"
+					},
+					{
+						"name": "Deal Stage",
+						"type": "String"
+					},
+					{
+						"name": "Notes",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage3')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Json1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage3",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "500 KB 5 Level Formatted.json",
+						"fileSystem": "democontainer"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"employee": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "string"
+								},
+								"name": {
+									"type": "string"
+								},
+								"position": {
+									"type": "string"
+								},
+								"department": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "string"
+										},
+										"name": {
+											"type": "string"
+										},
+										"manager": {
+											"type": "object",
+											"properties": {
+												"id": {
+													"type": "string"
+												},
+												"name": {
+													"type": "string"
+												},
+												"contact": {
+													"type": "object",
+													"properties": {
+														"email": {
+															"type": "string"
+														},
+														"phone": {
+															"type": "string"
+														}
+													}
+												}
+											}
+										}
+									}
+								},
+								"projects": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"projectId": {
+												"type": "string"
+											},
+											"projectName": {
+												"type": "string"
+											},
+											"startDate": {
+												"type": "string"
+											},
+											"tasks": {
+												"type": "array",
+												"items": {
+													"type": "object",
+													"properties": {
+														"taskId": {
+															"type": "string"
+														},
+														"title": {
+															"type": "string"
+														},
+														"status": {
+															"type": "string"
+														},
+														"details": {
+															"type": "object",
+															"properties": {
+																"hoursSpent": {
+																	"type": "integer"
+																},
+																"technologiesUsed": {
+																	"type": "array",
+																	"items": {
+																		"type": "string"
+																	}
+																},
+																"completionDate": {
+																	"type": "string"
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage3')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Sourcecsv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -463,6 +698,83 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/Sourcelinked')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipelinedltpra')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copydatadlt",
+						"description": "practicing copy and delete activity",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"fileListPath": "task1container/500 KB 5 Level Formatted.txt",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DelimitedText2",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DelimitedText2",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DelimitedText2')]"
 			]
 		},
 		{

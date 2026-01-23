@@ -11,6 +11,9 @@
 		"AzureDataLakeStorage2_accountKey": {
 			"value": ""
 		},
+		"AzureDataLakeStorage3_accountKey": {
+			"value": ""
+		},
 		"SinkLinked_password": {
 			"value": ""
 		},
@@ -21,6 +24,9 @@
 			"value": "https://browsejobproject.dfs.core.windows.net/"
 		},
 		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://browsejobproject.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
 			"value": "https://browsejobproject.dfs.core.windows.net/"
 		},
 		"SinkLinked_properties_typeProperties_server": {
