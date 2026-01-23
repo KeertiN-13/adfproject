@@ -1,0 +1,121 @@
+{
+	"name": "Json1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage3",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "500 KB 5 Level Formatted.json",
+				"fileSystem": "democontainer"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"employee": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "string"
+						},
+						"name": {
+							"type": "string"
+						},
+						"position": {
+							"type": "string"
+						},
+						"department": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "string"
+								},
+								"name": {
+									"type": "string"
+								},
+								"manager": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "string"
+										},
+										"name": {
+											"type": "string"
+										},
+										"contact": {
+											"type": "object",
+											"properties": {
+												"email": {
+													"type": "string"
+												},
+												"phone": {
+													"type": "string"
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						"projects": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"projectId": {
+										"type": "string"
+									},
+									"projectName": {
+										"type": "string"
+									},
+									"startDate": {
+										"type": "string"
+									},
+									"tasks": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"taskId": {
+													"type": "string"
+												},
+												"title": {
+													"type": "string"
+												},
+												"status": {
+													"type": "string"
+												},
+												"details": {
+													"type": "object",
+													"properties": {
+														"hoursSpent": {
+															"type": "integer"
+														},
+														"technologiesUsed": {
+															"type": "array",
+															"items": {
+																"type": "string"
+															}
+														},
+														"completionDate": {
+															"type": "string"
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
