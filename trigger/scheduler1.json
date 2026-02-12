@@ -1,0 +1,25 @@
+{
+	"name": "scheduler1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline_cpy_multiple_files",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1,
+				"startTime": "2026-02-12T18:35:00",
+				"endTime": "2026-02-13T18:35:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
