@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "dfbrowsejobproject"
 		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
@@ -12,6 +15,30 @@
 			"value": ""
 		},
 		"AzureDataLakeStorage3_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage4_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage5_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage6_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage7_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage8_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage9_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase2_password": {
 			"value": ""
 		},
 		"SinkLinked_password": {
@@ -28,6 +55,42 @@
 		},
 		"AzureDataLakeStorage3_properties_typeProperties_url": {
 			"value": "https://browsejobproject.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage4_properties_typeProperties_url": {
+			"value": "https://storageexampleproject.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage5_properties_typeProperties_url": {
+			"value": "https://homeworkpractice.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage6_properties_typeProperties_url": {
+			"value": "https://homeworkpractice.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage7_properties_typeProperties_url": {
+			"value": "https://homeworkpractice.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage8_properties_typeProperties_url": {
+			"value": "https://homeworkpractice.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage9_properties_typeProperties_url": {
+			"value": "https://homeworkpractice.dfs.core.windows.net/"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "dbpracticepro.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "practiceprojectdb"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "admindb"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"value": "dbpracticepro.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"value": "practiceprojectdb"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"value": "admindb"
 		},
 		"SinkLinked_properties_typeProperties_server": {
 			"value": "dbpracticepro.database.windows.net"
